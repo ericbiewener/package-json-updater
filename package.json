@@ -1,0 +1,60 @@
+{
+  "name": "bootstrap-ts",
+  "version": "0.0.1",
+  "main": "dist/main.js",
+  "types": "dist/main.d.ts",
+  "repository": "https://github.com/ericbiewener/bootsrap-ts",
+  "author": "Eric Biewener <ebiewener@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepublish": "tsc",
+    "start": "ts-node src/main.ts",
+    "debug": "ts-node --nolazy --inspect-brk=9229 src/main.ts",
+    "prettier": "prettier --write \"**/*.{ts,tsx,js}\"",
+    "eslint": "eslint --fix --ext .ts,.tsx ./src",
+    "test": "jest",
+    "test:watch": "yarn run test --watch"
+  },
+  "devDependencies": {
+    "@babel/core": "7.7.2",
+    "@babel/preset-env": "7.7.1",
+    "@babel/preset-typescript": "7.7.2",
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.7",
+    "@types/yaml": "1.2.0",
+    "babel-jest": "24.9.0",
+    "eslint": "6.6.0",
+    "eslint-config-ericbiewener-typescript": "5.3.2",
+    "husky": "3.0.9",
+    "jest": "24.9.0",
+    "lint-staged": "9.4.2",
+    "prettier": "1.19.1",
+    "ts-node": "8.5.4",
+    "typescript": "3.7.2"
+  },
+  "lint-staged": {
+    "**/*.{json,yml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "**/*.{ts,tsx,gql}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "dependencies": {
+    "log-all-the-things": "5.0.5",
+    "string.prototype.matchall": "4.0.2",
+    "utlz": "2.3.1",
+    "yargs": "15.3.1"
+  }
+}
